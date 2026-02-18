@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Comparer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hash Comparer</h1>
+<label for="hash1">Hash 1:</label><br>
+<input type="text" id="hash1" placeholder="Enter first hash"><br><br>
+<label for="hash2">Hash 2:</label><br>
+<input type="text" id="hash2" placeholder="Enter second hash"><br><br>
+<button onclick="compareHashes()">Compare Hashes</button>
+
+<p id="result"></p>
+
+<script>
+function compareHashes() {
+    var hash1 = document.getElementById("hash1").value.trim().toLowerCase();
+    var hash2 = document.getElementById("hash2").value.trim().toLowerCase();
+    var resultElement = document.getElementById("result");
+
+    // Check if both hash fields are filled
+    if (!hash1 || !hash2) {
+        resultElement.innerHTML = "Both hash fields are required.";
+        resultElement.style.color = "red";
+        return;
+    }
+
+    // Compare hashes and display the result
+    if (hash1 === hash2) {
+        resultElement.innerHTML = "The hashes are the same.";
+        resultElement.style.color = "green";
+    } else {
+        resultElement.innerHTML = "The hashes are different.";
+        resultElement.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
